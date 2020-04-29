@@ -5,8 +5,6 @@ name: JPackage
 
 on:
   push:
-    branches:
-      - feature_ci
     tags:
       - 'v*'
 
@@ -34,8 +32,8 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            prettyZoo-win.zip
-            prettyZoo.dmg
+            app/build/jpackage/prettyZoo-win.zip
+            app/build/jpackage/prettyZoo.dmg
           draft: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
