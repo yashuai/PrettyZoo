@@ -9,6 +9,7 @@ javafx {
 }
 
 mainClassName = "app.main/cc.cc1234.PrettyZooApplication"
+ext.os = org.gradle.internal.os.OperatingSystem.current()
 jlink {
     options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
     addExtraDependencies("javafx")
@@ -16,6 +17,29 @@ jlink {
     launcher {
         name = 'prettyZoo'
     }
+
+
+    jpackage {
+
+    }
+}
+
+task toZip(type: Zip) {
+    archiveFileName = "prettyZoo-win.zip"
+    destinationDirectory = file("$buildDir/jpackage")
+    from "$buildDir/jpackage/prettyZoo"
+}
+
+task renameDmgFile(type: Copy) {
+    println("----- current package version is $version ----")
+    from "$buildDir/jpackage/prettyZoo-${version}.dmg"
+    into "$buildDir/jpackage/prettyZoo.dmg"
+}
+
+task vpackage {
+    dependsOn jpackage
+    dependsOn toZip
+    dependsOn renameDmgFile
 }
 
 dependencies {
