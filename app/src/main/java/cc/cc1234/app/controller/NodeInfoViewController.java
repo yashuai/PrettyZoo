@@ -2,7 +2,6 @@ package cc.cc1234.app.controller;
 
 import cc.cc1234.app.context.ActiveServerContext;
 import cc.cc1234.app.facade.PrettyZooFacade;
-import cc.cc1234.app.util.Transitions;
 import cc.cc1234.app.util.VToast;
 import cc.cc1234.spi.node.ZkNode;
 import javafx.fxml.FXML;
@@ -51,7 +50,7 @@ public class NodeInfoViewController {
     private TextField cVersionField;
 
     @FXML
-    private TextField pathField;
+    private TextArea pathField;
 
     @FXML
     private TextArea dataField;
@@ -64,6 +63,15 @@ public class NodeInfoViewController {
 
     @FXML
     private void initialize() {
+        pathField.setOnMouseEntered(e -> {
+            pathField.setWrapText(true);
+            pathField.setMaxHeight(nodeInfoPane.getHeight());
+            AnchorPane.setBottomAnchor(pathField, 100d);
+        });
+        pathField.setOnMouseExited(e -> {
+            pathField.setWrapText(false);
+            AnchorPane.setBottomAnchor(pathField, null);
+        });
         nodeUpdateButton.setOnMouseClicked(e -> {
             final String path = pathField.getText();
             if (!ActiveServerContext.exists()) {

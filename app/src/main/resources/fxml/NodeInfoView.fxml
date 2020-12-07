@@ -131,11 +131,7 @@
                   </HBox>
                </children>
             </GridPane>
-            <TextField fx:id="pathField" editable="false" layoutX="41.0" layoutY="14.0" minHeight="30.0" prefHeight="30.0" styleClass="node-info-field" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
+            <TextArea fx:id="pathField" editable="false" layoutX="37.0" layoutY="-70.0" prefHeight="30.0" styleClass="node-info-field" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children></AnchorPane>
       <AnchorPane layoutX="215.0" layoutY="151.0" prefHeight="180.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="330.0">
          <children>

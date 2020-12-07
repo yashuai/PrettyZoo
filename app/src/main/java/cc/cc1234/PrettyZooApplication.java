@@ -25,7 +25,6 @@ public class PrettyZooApplication extends Application {
         v2(primaryStage);
     }
 
-
     @Override
     public void stop() throws Exception {
         super.stop();
@@ -66,5 +65,4 @@ public class PrettyZooApplication extends Application {
         InputStream stream = PrettyZooApplication.class.getClassLoader().getSystemResourceAsStream("assets/img/prettyzoo-logo.png");
         return Optional.ofNullable(stream);
     }
-
 }
